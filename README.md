@@ -18,14 +18,14 @@ Lets take a look at the pricing data upto this point so far;
 
 ```python
 import IPython
-full_plots = '<iframe width="900" height="450" frameborder="0" scrolling="no" src="Crypto_8_2017_Files/bitcoin&ethereum_fullplots.html"></iframe>'
+full_plots = '<iframe width="900" height="450" frameborder="0" scrolling="no" src="https://raw.githubusercontent.com/JoeGanser/Time_Series_Of_Bitcoin_Ethereum/master/Crypto_8_2017_Files/bitcoin_ethereum_prediction_plots.html"></iframe>'
 IPython.display.HTML(full_plots)
 ```
 
 
 
 
-<iframe width="900" height="450" frameborder="0" scrolling="no" src="Crypto_8_2017_Files/bitcoin&ethereum_fullplots.html"></iframe>
+<iframe width="900" height="450" frameborder="0" scrolling="no" src="https://raw.githubusercontent.com/JoeGanser/Time_Series_Of_Bitcoin_Ethereum/master/Crypto_8_2017_Files/bitcoin_ethereum_prediction_plots.html"></iframe>
 
 
 
@@ -59,14 +59,14 @@ Here are the final results - the actual predictions of my models.
 
 
 ```python
-prediction_plots = '<iframe width="900" height="650" frameborder="0" scrolling="no" src="Crypto_8_2017_Files/bitcoin_ethereum_prediction_plots.html"></iframe>'
+prediction_plots = '<iframe width="900" height="650" frameborder="0" scrolling="no" src="https://raw.githubusercontent.com/JoeGanser/Time_Series_Of_Bitcoin_Ethereum/master/Crypto_8_2017_Files/bitcoin_ethereum_prediction_plots.html"></iframe>'
 IPython.display.HTML(prediction_plots)
 ```
 
 
 
 
-<iframe width="900" height="650" frameborder="0" scrolling="no" src="Crypto_8_2017_Files/bitcoin_ethereum_prediction_plots.html"></iframe>
+<iframe width="900" height="650" frameborder="0" scrolling="no" src="https://raw.githubusercontent.com/JoeGanser/Time_Series_Of_Bitcoin_Ethereum/master/Crypto_8_2017_Files/bitcoin_ethereum_prediction_plots.html"></iframe>
 
 
 
