@@ -230,82 +230,9 @@ def ARIMA_predictions(original_series,stationary_series,parameters, days_out):
     df[['Price','Predicted with ARIMA']] = df[['Price','Predicted with ARIMA']].apply(lambda x: round(x,2))
     return df
 
-
-print("ARIMA bitcoin predictions")
 bitcoin_ARIMA = ARIMA_predictions(bitcoin,bits_log_shift,(0,1,1),7)
-bitcoin_ARIMA
+
 ```
-
-    ARIMA bitcoin predictions
-    ARIMA Root Mean Squared Error:  3.898537928223503
-
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Price</th>
-      <th>Predicted with ARIMA</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2017-08-23</th>
-      <td>4318.35</td>
-      <td>4321.92</td>
-    </tr>
-    <tr>
-      <th>2017-08-24</th>
-      <td>4364.41</td>
-      <td>4368.25</td>
-    </tr>
-    <tr>
-      <th>2017-08-25</th>
-      <td>4352.30</td>
-      <td>4356.23</td>
-    </tr>
-    <tr>
-      <th>2017-08-26</th>
-      <td>4345.75</td>
-      <td>4349.69</td>
-    </tr>
-    <tr>
-      <th>2017-08-27</th>
-      <td>4390.31</td>
-      <td>4394.20</td>
-    </tr>
-    <tr>
-      <th>2017-08-28</th>
-      <td>4597.31</td>
-      <td>4601.04</td>
-    </tr>
-    <tr>
-      <th>2017-08-29</th>
-      <td>4583.02</td>
-      <td>4587.37</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
 
 **Code for Neural Net LSTM**
 
@@ -410,86 +337,8 @@ def Neural_Net_predictions(original_time_series, stationary_time_series, days_ou
     df[['Price','Predicted with Neural Nets']] = df[['Price','Predicted with Neural Nets']].apply(lambda x: round(x,2))
     return df
 
-print('Bitcoin Neural Net Predictions')
 bitcoin_NN = Neural_Net_predictions(bitcoin,bits_log_shift,days_out=7,nb_epoch=55,neurons=175)
-bitcoin_NN
 ```
-
-    Using TensorFlow backend.
-
-
-    Bitcoin Neural Net Predictions
-    Neural Net Root Mean Squared Error:  49.40448539455479
-
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Price</th>
-      <th>Predicted with Neural Nets</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2017-08-23</th>
-      <td>4318.35</td>
-      <td>4369.75</td>
-    </tr>
-    <tr>
-      <th>2017-08-24</th>
-      <td>4364.41</td>
-      <td>4423.16</td>
-    </tr>
-    <tr>
-      <th>2017-08-25</th>
-      <td>4352.30</td>
-      <td>4397.79</td>
-    </tr>
-    <tr>
-      <th>2017-08-26</th>
-      <td>4345.75</td>
-      <td>4384.69</td>
-    </tr>
-    <tr>
-      <th>2017-08-27</th>
-      <td>4390.31</td>
-      <td>4430.15</td>
-    </tr>
-    <tr>
-      <th>2017-08-28</th>
-      <td>4597.31</td>
-      <td>4643.98</td>
-    </tr>
-    <tr>
-      <th>2017-08-29</th>
-      <td>4583.02</td>
-      <td>4643.36</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-Thanks for reading!
 
 **Sources for information and tutorials that helped me write this analysis**:
 1. The Application of Time Series Modelling and Monte Carlo Simulation: Forecasting Volatile Inventory Requirements By Robert Davies, Tim Coole, David Osipyw, https://file.scirp.org/pdf/AM_2014050513382674.pdf
