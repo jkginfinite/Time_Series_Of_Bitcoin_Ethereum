@@ -15,19 +15,9 @@ Because I am only predicting the next day out, and I am extracting the signal fr
 
 Lets take a look at the pricing data upto this point so far;
 
-
-```python
-import IPython
-full_plots = '<iframe width="900" height="450" frameborder="0" scrolling="no" src="https://raw.githubusercontent.com/JoeGanser/Time_Series_Of_Bitcoin_Ethereum/master/Crypto_8_2017_Files/bitcoin_ethereum_prediction_plots.html"></iframe>'
-IPython.display.HTML(full_plots)
-```
-
-
-
-
-<iframe width="900" height="450" frameborder="0" scrolling="no" src="https://raw.githubusercontent.com/JoeGanser/Time_Series_Of_Bitcoin_Ethereum/master/Crypto_8_2017_Files/bitcoin_ethereum_prediction_plots.html"></iframe>
-
-
+<p align="center">
+<img src="Crypto_8_2017_Files/fullplots.png">
+</p>
 
 # INTRODUCTION 
 
@@ -57,18 +47,28 @@ The assumption, which is validated, is that the exponential long term trend shal
 
 Here are the final results - the actual predictions of my models.
 
+<p align="center">
+<img src='Crypto_8_2017_Files/predictions.png'></p>
 
-```python
-prediction_plots = '<iframe width="900" height="650" frameborder="0" scrolling="no" src="https://raw.githubusercontent.com/JoeGanser/Time_Series_Of_Bitcoin_Ethereum/master/Crypto_8_2017_Files/bitcoin_ethereum_prediction_plots.html"></iframe>'
-IPython.display.HTML(prediction_plots)
-```
+Date|Bitcoin Price|ARIMA prediction|Neural Net Prediction
+----|-----|-----|
+2017-08-23|4318.35|4321.92|4369.75
+2017-08-24|4364.41|4368.25|4423.16
+2017-08-25|4352.30|4356.23|4397.79
+2017-08-26|4345.75|4349.69|4384.69
+2017-08-27|4390.31|4394.20|4430.15
+2017-08-28|4597.31|4601.04|4643.98
+2017-08-29|4583.02|4587.37|4643.36
 
-
-
-
-<iframe width="900" height="650" frameborder="0" scrolling="no" src="https://raw.githubusercontent.com/JoeGanser/Time_Series_Of_Bitcoin_Ethereum/master/Crypto_8_2017_Files/bitcoin_ethereum_prediction_plots.html"></iframe>
-
-
+Date|Ethereum Price|ARIMA prediction|Neural Net Prediction
+----|-----|-----|
+2017-08-23|325.28|327.39|325.36
+2017-08-24|330.06|331.70|325.76
+2017-08-25|332.86|334.69|334.74
+2017-08-26|347.88|350.00|352.49
+2017-08-27|347.66|348.96|350.64
+2017-08-28|372.35|374.69|373.62
+2017-08-29|383.86|384.72|388.87
 
 **MODEL PERFORMANCE METRICS**
 
@@ -89,7 +89,8 @@ ARIMA tended to perform better on bitcoin than neural nets, but the neural nets 
 
 ### **EXTRACTING THE SIGNAL FROM THE NOISE USING THE AUGMENTED DICKEY FULLER TEST**
 
-<img src = 'Crypto_8_2017_Files/Signal_Noise.png'>
+<p align="center">
+<img src = 'Crypto_8_2017_Files/Signal_Noise.png'></p>
 
 The [augmented dickey fuller](https://en.wikipedia.org/wiki/Augmented_Dickey–Fuller_test) test is a statistical test to determine [stationarity](https://en.wikipedia.org/wiki/Stationary_process). Stationarity occurs when a series of data is transformed into format which clearly identifies the signal (aka a "trend") and all we are left with is noise. More specifically, stationarity occurs when we put the time series data is put into it's correct inverse function. With outputs similar to a Z-test, the test tells us if the new format we have has clearly identified the signal within the data. The null hypothesis of the Dickey Fuller test is that the signal and noise are NOT decoupled. The strategy behind using this is that by extracting the signal, we model and predict the noise and plug those predictions back into the signal.
 
@@ -130,7 +131,7 @@ The actual function form that allowed me to seperate the signal from the noise w
 The actual function that worked was this:
 
 |  **Concept Function & Definition**                   |
-| ------------------------- ------------------------------------------|
+| :------------------------- ------------------------------------------:|
 |  Price on day t:           $X_t$|
 | Noise on day t: $\delta_t$|
 |Price on day 0: $X_0$|
@@ -155,7 +156,8 @@ So now I have clearly identified the stationary form of the time series. These s
 
 The plots below show the series, the rolling mean and standard deviations plotted side by side. The first is what the original series looked like, and the second is what the series looks like after it's input into the inverse transformation function.
 
-<img src='Crypto_8_2017_Files/Dickey_Fuller_Tests.png'>
+<p align="center">
+<img src='Crypto_8_2017_Files/Dickey_Fuller_Tests.png'></p>
 
 The specific statistics for the tests were:
 
@@ -190,7 +192,8 @@ There are several steps to building an ARIMA model. ARIMA operates on three para
 
 The plots of auto-correlation & partial auto-correlation for bitcoin & ethereums stationary formats were:
 
-<img src='Crypto_8_2017_Files/correlation_plots.png'>
+<p align="center">
+<img src='Crypto_8_2017_Files/correlation_plots.png'></p>
 
 Using these plots I can estimate the ARIMA parameters (p,q) of the parameters (p,q,d) for ARIMA models. Just by looking at the graphs it can be estimate that p & q are around no more than 7 each. After grid searching through lots of combinations it was found that **Bitcoins ARIMA parameters were (p=0,d=1,q=1)** and **Ethereum's ARIMA parameters were (p=2,d=0,q=0)**. These were validated by the minimization of the root mean squared error.
 
@@ -496,6 +499,8 @@ bitcoin_NN
 </div>
 
 
+
+Thanks for reading!
 
 **Sources for information and tutorials that helped me write this analysis**:
 1. The Application of Time Series Modelling and Monte Carlo Simulation: Forecasting Volatile Inventory Requirements By Robert Davies, Tim Coole, David Osipyw, https://file.scirp.org/pdf/AM_2014050513382674.pdf
