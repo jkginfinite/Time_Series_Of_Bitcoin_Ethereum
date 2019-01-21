@@ -16,7 +16,7 @@ Because I am only predicting the next day out, and I am extracting the signal fr
 Lets take a look at the pricing data upto this point so far;
 
 <p align="center">
-<img src="Crypto_8_2017_Files/fullplots.png">
+<img src="https://raw.githubusercontent.com/JoeGanser/Time_Series_Of_Bitcoin_Ethereum/master/Crypto_8_2017_Files/fullplots.png">
 </p>
 
 # INTRODUCTION 
@@ -47,7 +47,7 @@ The assumption, which is validated, is that the exponential long term trend shal
 
 Here are the final results - the actual predictions of my models.
 <p align="center">
-<img src='Crypto_8_2017_Files/predictions.png'></p>
+<img src='https://raw.githubusercontent.com/JoeGanser/Time_Series_Of_Bitcoin_Ethereum/master/Crypto_8_2017_Files/predictions.png'></p>
 
 Date|Bitcoin Price|ARIMA prediction|Neural Net Prediction
 ----|-----|-----|----
@@ -89,14 +89,14 @@ ARIMA tended to perform better on bitcoin than neural nets, but the neural nets 
 ### **EXTRACTING THE SIGNAL FROM THE NOISE USING THE AUGMENTED DICKEY FULLER TEST**
 
 <p align="center">
-<img src = 'Crypto_8_2017_Files/Signal_Noise.png'></p>
+<img src = 'https://raw.githubusercontent.com/JoeGanser/Time_Series_Of_Bitcoin_Ethereum/master/Crypto_8_2017_Files/Signal_Noise.png'></p>
 
 The [augmented dickey fuller](https://en.wikipedia.org/wiki/Augmented_Dickey–Fuller_test) test is a statistical test to determine [stationarity](https://en.wikipedia.org/wiki/Stationary_process). Stationarity occurs when a series of data is transformed into format which clearly identifies the signal (aka a "trend") and all we are left with is noise. More specifically, stationarity occurs when we put the time series data is put into it's correct inverse function. With outputs similar to a Z-test, the test tells us if the new format we have has clearly identified the signal within the data. The null hypothesis of the Dickey Fuller test is that the signal and noise are NOT decoupled. The strategy behind using this is that by extracting the signal, we model and predict the noise and plug those predictions back into the signal.
 
 Stationarity data has four fundamental criteria:
 
 
-<img src='Crypto_8_2017_Files/stationarity_criteria.png' width='80%' height='80%'>
+<img src='https://raw.githubusercontent.com/JoeGanser/Time_Series_Of_Bitcoin_Ethereum/master/Crypto_8_2017_Files/stationarity_criteria.png' width='80%' height='80%'>
 
 
 
@@ -108,7 +108,7 @@ Knowing the best fitting function is not enough to model the time series. What i
 *A graphical example of an inverse function:* log(x) is the inverse of e^(x)
 
 <p align="center">
-<img src='Crypto_8_2017_Files/InverseFunction.png'></p>
+<img src='https://raw.githubusercontent.com/JoeGanser/Time_Series_Of_Bitcoin_Ethereum/master/Crypto_8_2017_Files/InverseFunction.png'></p>
 
 Extracting the signal from the noise can be summed into three steps
 1. Find the a function similar to the time series data.
@@ -123,13 +123,13 @@ Extracting the signal from the noise can be summed into three steps
 By looking at the very first plot, we can see that the trend of the cryptocurrency prices are in some way exponential. Thus, I can hypothesize that the signal is exponential in form.
 
 <p align="center">
-<img src='Crypto_8_2017_Files/bitprice_vs_exponential_curve.png'></p>
+<img src='https://raw.githubusercontent.com/JoeGanser/Time_Series_Of_Bitcoin_Ethereum/master/Crypto_8_2017_Files/bitprice_vs_exponential_curve.png'></p>
 
 The actual function form that allowed me to seperate the signal from the noise was indeed *exponential in form* but not simply exponential. It was by using this function's inverse that I could pass the dickey fuller test.
 
 The actual function that worked was this:
 
-<img src='Crypto_8_2017_Files/function_definition.png' width='30%' height='30%'>
+<img src='https://raw.githubusercontent.com/JoeGanser/Time_Series_Of_Bitcoin_Ethereum/master/Crypto_8_2017_Files/function_definition.png' width='30%' height='30%'>
 
 These function transformations worked with both the bitcoin & ethereum data.
 
@@ -148,7 +148,7 @@ So now I have clearly identified the stationary form of the time series. These s
 The plots below show the series, the rolling mean and standard deviations plotted side by side. The first is what the original series looked like, and the second is what the series looks like after it's input into the inverse transformation function.
 
 <p align="center">
-<img src='Crypto_8_2017_Files/Dickey_Fuller_Tests.png'></p>
+<img src='https://raw.githubusercontent.com/JoeGanser/Time_Series_Of_Bitcoin_Ethereum/master/Crypto_8_2017_Files/Dickey_Fuller_Tests.png'></p>
 
 The specific statistics for the tests were:
 
@@ -182,7 +182,7 @@ There are several steps to building an ARIMA model. ARIMA operates on three para
 The plots of auto-correlation & partial auto-correlation for bitcoin & ethereums stationary formats were:
 
 <p align="center">
-<img src='Crypto_8_2017_Files/correlation_plots.png'></p>
+<img src='https://raw.githubusercontent.com/JoeGanser/Time_Series_Of_Bitcoin_Ethereum/master/Crypto_8_2017_Files/correlation_plots.png'></p>
 
 Using these plots I can estimate the ARIMA parameters (p,q) of the parameters (p,q,d) for ARIMA models. Just by looking at the graphs it can be estimate that p & q are around no more than 7 each. After grid searching through lots of combinations it was found that **Bitcoins ARIMA parameters were (p=0,d=1,q=1)** and **Ethereum's ARIMA parameters were (p=2,d=0,q=0)**. These were validated by the minimization of the root mean squared error.
 
