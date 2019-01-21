@@ -46,7 +46,6 @@ The assumption, which is validated, is that the exponential long term trend shal
 # MODEL PREDICTIONS
 
 Here are the final results - the actual predictions of my models.
-
 <p align="center">
 <img src='Crypto_8_2017_Files/predictions.png'></p>
 
@@ -59,6 +58,7 @@ Date|Bitcoin Price|ARIMA prediction|Neural Net Prediction
 2017-08-27|4390.31|4394.20|4430.15
 2017-08-28|4597.31|4601.04|4643.98
 2017-08-29|4583.02|4587.37|4643.36
+
 
 Date|Ethereum Price|ARIMA prediction|Neural Net Prediction
 ----|-----|-----|
@@ -96,10 +96,8 @@ The [augmented dickey fuller](https://en.wikipedia.org/wiki/Augmented_Dickey–F
 
 Stationarity data has four fundamental criteria:
 
-1. The average value is constant in time; $E[Y_t] = \mu  \space\space  \forall t\in T$
-2. The variance is is finite for all time $Var[Y_t] = \sigma^{2}<\infty \space\space \forall t\in T$
-3. Covariance is dependent upon lagged values and not time itsself, i.e. $\rho_k = \frac{Cov(y_{t},y_{t+k})}{Var(y_t)} = \frac{\gamma_k}{\gamma_0}$
-4. The joint distribution remains identical for all time, i.e. $[{Y(t_1),Y(t_2),...,Y(t_k)}] \equiv [{Y(t_1+h),Y(t_2+h),...,Y(t_k+h)}] \space\space \forall t,h\in T $
+<p align="center">
+<img src='Crypto_8_2017_Files/stationarity_criteria.png' width='60%' height='60%'></p>
 
 
 
@@ -110,7 +108,8 @@ Knowing the best fitting function is not enough to model the time series. What i
 
 *A graphical example of an inverse function:* $log_{e}{x}$ is the inverse of $e^{x}$
 
-<img src='Crypto_8_2017_Files/InverseFunction.png'>
+<p align="center">
+<img src='Crypto_8_2017_Files/InverseFunction.png'></p>
 
 Extracting the signal from the noise can be summed into three steps
 1. Find the a function similar to the time series data.
@@ -124,21 +123,14 @@ Extracting the signal from the noise can be summed into three steps
 
 By looking at the very first plot, we can see that the trend of the cryptocurrency prices are in some way exponential. Thus, I can hypothesize that the signal is exponential in form.
 
-<img src='Crypto_8_2017_Files/bitprice_vs_exponential_curve.png'>
+<p align="center">
+<img src='Crypto_8_2017_Files/bitprice_vs_exponential_curve.png'></p>
 
 The actual function form that allowed me to seperate the signal from the noise was indeed *exponential in form* but not simply exponential. It was by using this function's inverse that I could pass the dickey fuller test.
 
 The actual function that worked was this:
 
-|  **Concept Function & Definition**                   |
-| :------------------------- ------------------------------------------:|
-|  Price on day t:           $X_t$|
-| Noise on day t: $\delta_t$|
-|Price on day 0: $X_0$|
-| Signal Function:           $X_t = X_0 exp({\sum_{i<t}{\delta_i}})$ |  
-| Recursive form:           $X_t = X_{t-1} exp(\delta_t)$           |
-| Inverse Function (noise):        $\delta_t = \ln\frac{X_t}{X_{t-1}}$      |
-
+<img src='Crypto_8_2017_Files/function_definition.png' width='30%' height='30%'>
 
 These function transformations worked with both the bitcoin & ethereum data.
 
@@ -170,8 +162,6 @@ Number of Observations Used| 2596.000000|2573.000000
 Critical Value (1%)|-3.962262|-3.962293
 Critical Value (5%)|-3.412183|-3.412198
 Critical Value (10%)|-3.128047|-3.128055
-
-Similar results were observed for ethereum.
 
 ## CODE FOR MODEL BUILDING & MAKING PREDICTIONS
 
