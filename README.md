@@ -50,7 +50,7 @@ Here are the final results - the actual predictions of my models.
 <img src='Crypto_8_2017_Files/predictions.png'></p>
 
 Date|Bitcoin Price|ARIMA prediction|Neural Net Prediction
-----|-----|-----|
+----|-----|-----|----
 2017-08-23|4318.35|4321.92|4369.75
 2017-08-24|4364.41|4368.25|4423.16
 2017-08-25|4352.30|4356.23|4397.79
@@ -59,9 +59,8 @@ Date|Bitcoin Price|ARIMA prediction|Neural Net Prediction
 2017-08-28|4597.31|4601.04|4643.98
 2017-08-29|4583.02|4587.37|4643.36
 
-
 Date|Ethereum Price|ARIMA prediction|Neural Net Prediction
-----|-----|-----|
+----|-----|-----|----
 2017-08-23|325.28|327.39|325.36
 2017-08-24|330.06|331.70|325.76
 2017-08-25|332.86|334.69|334.74
@@ -96,8 +95,8 @@ The [augmented dickey fuller](https://en.wikipedia.org/wiki/Augmented_Dickey–F
 
 Stationarity data has four fundamental criteria:
 
-<p align="center">
-<img src='Crypto_8_2017_Files/stationarity_criteria.png' width='60%' height='60%'></p>
+
+<img src='Crypto_8_2017_Files/stationarity_criteria.png' width='80%' height='80%'>
 
 
 
