@@ -177,7 +177,7 @@ Critical Value (10%)|-3.128047|-3.128055
 
 There are several steps to building an ARIMA model. ARIMA operates on three parameters. Based upon the plots of auto-correlation, partial auto-correlation and the amount of Bayesian information criterion we select these three parameters. Ofcourse, the end goal is to minimize the root mean squared error of the model.
 
-**AUTO CORRELATION & PARTIAL AUTOCORRELATION PLOTS **
+**AUTO CORRELATION & PARTIAL AUTOCORRELATION PLOTS**
 
 The plots of auto-correlation & partial auto-correlation for bitcoin & ethereums stationary formats were:
 
